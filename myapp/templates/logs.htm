@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<header>
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+</header>
+<h1>LOGS</h1>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+            <th>time</th>
+            <th>name</th>
+            <th>number</th>
+            <th>Взяв/повернув</th>
+        </thead>
+        <tbody>
+            {% for item in Logs %}
+            <tr>
+                <td>{{ item.when|default_if_none:'' }}</td>
+                <td>{{ item.name|default_if_none:'' }}</td>
+                <td>{{ item.number|default_if_none:'' }}</td>
+                <td>{{ item.action|default_if_none:'' }}</td>
+             </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="frame">
+    <div class="container-buttons">
+        <button onclick="window.location.href='/home'" class="custom-btn btn-1">Home</button>
+        <button onclick="window.location.href='/list'" class="custom-btn btn-1">List of cabinets</button>
+    </div>
+</div>
+
+</div>
+</html>

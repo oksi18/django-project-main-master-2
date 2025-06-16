@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        input[type=text], select {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+        
+        input[type=submit] {
+          width: 100%;
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+        
+        div {
+          border-radius: 5px;
+          background-color: #f2f2f2;
+          padding: 20px;
+        }
+        </style>
+<header>
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+</header>
+<h1>Keys from cabinets app</h1>
+
+<form method="POST" class="post-form" action="#">
+    {% csrf_token %}
+    <div class="container">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name..">
+
+        <label for="number">Number of cabinet</label>
+        <input type="text" id="number" name="number" placeholder="Your number of cabinet..">
+
+        <label for="action">Choose action:</label>
+
+            <select name="action" id="action">
+                <option value="Take a key">Take a key</option>
+                <option value="Return a key">Return a key</option>
+
+        </select>
+        <input type="submit" name="submit_logs" value="Submit">
+        </div>
+</form>
+
+
+<div class="container" style="margin-top: 20px;">
+    <h2>Leave a Message</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email..">
+
+        <label for="text">Message</label>
+        <input type="text" id="text" name="text" placeholder="Your message..">
+
+        <input type="submit" name="submit_message" value="Send Message">
+    </form>
+</div>
+
+
+    <div class="container-buttons">
+        <button onclick="window.location.href='/list'" class="custom-btn btn-1">List of cabinets</button>
+        <button onclick="window.location.href='/logs'" class="custom-btn btn-1">History</button>
+    </div>
+</html>

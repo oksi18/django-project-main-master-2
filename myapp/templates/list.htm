@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<header>
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+</header>
+<h1>Keys from cabinets app</h1>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+            <!-- <th>id</th> -->
+            <th>Список кабінетів</th>
+            <th>Ким зайнятий</th>
+            <!-- <th>action</th> -->
+        </thead>
+        <tbody>
+            {% for item in Cabinets %}
+            <tr>
+                <!-- <td>{{ item.id|default_if_none:'' }}</td> -->
+                <td>{{ item.number|default_if_none:'' }}</td>
+                <td>{{ item.name_teacher|default_if_none:'Кабінет вільний' }}</td>
+             </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   
+<div class="frame">
+    <div class="container-buttons">
+        <button onclick="window.location.href='/home'" class="custom-btn btn-1">Home</button>
+        <button onclick="window.location.href='/logs'" class="custom-btn btn-1">History</button>
+    </div>
+</div>
+
+
+</div>
+</html>
